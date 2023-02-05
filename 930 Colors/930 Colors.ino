@@ -8,7 +8,8 @@
 #define NUM_STRIPS 1
 #define NUM_LEDS_PER_STRIP 60
 CRGB leds[NUM_STRIPS][NUM_LEDS_PER_STRIP];
-CRGB redStrip[NUM_LEDS_PER_STRIP];
+CRGB blueStrip[NUM_LEDS_PER_STRIP];
+CRGB whiteStrip[NUM_LEDS_PER_STRIP];
 CRGB blackStrip[NUM_LEDS_PER_STRIP];
 
 // For mirroring strips, all the "special" stuff happens just in setup.  We
@@ -17,20 +18,13 @@ void setup() {
   // tell FastLED there's 60 NEOPIXEL leds on pin 2
   FastLED.addLeds<NEOPIXEL, 12>(leds[0], NUM_LEDS_PER_STRIP);
   for(int i =0; i < NUM_LEDS_PER_STRIP; i++){
-    redStrip[i] = CRGB(255,0,25);
-    blackStrip[i] = CRGB(0,0,25);
+    blueStrip[i] = CRGB(7,30,74);
+    whiteStrip[i] = CRGB(255,255,255);
+    blackStrip[i] = CRGB(0,0,0);
+    
   }
-
+  
 }
-void setYellow()
-  {
-    for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-            // Does take RGB
-            leds[0][i] = CRGB(230,100,1);
-            // (85,12.7,73.7)
-            FastLED.show();
-        }
-  }
 void setBlack(){
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
       // Does take RGB
@@ -39,13 +33,35 @@ void setBlack(){
       FastLED.show();
     }
 }
+void setBluePattern()
+  {
+    for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
+            // Does take RGB
+            leds[0][i] = CRGB(7,30,74);
+            delay(50);
+            FastLED.show();
+        }
+  }
+void setWhitePattern()
+  {
+    for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
+            // Does take RGB
+            leds[0][i] = CRGB(255,255,255);
+            delay(50);
+            FastLED.show();
+        }
+  }
+
+
 void loop() {
     
     // This inner loop will go over each led in the current strip, one at a time  
-    setBlack();
-    FastLED.delay(500);
-    setYellow();
-      
+    
+    
+    setBluePattern();
+    FastLED.delay(1000);
+    setWhitePattern();
+    FastLED.delay(1000);
       
   }
 
