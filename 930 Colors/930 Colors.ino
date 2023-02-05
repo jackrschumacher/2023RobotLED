@@ -37,7 +37,7 @@ void setBluePattern()
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             // Does take RGB
-            leds[0][i] = CRGB(7,30,74);
+            leds[0][i] = CRGB(0,0,255);
             delay(50);
             FastLED.show();
         }
