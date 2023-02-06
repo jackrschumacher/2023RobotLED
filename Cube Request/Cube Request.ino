@@ -22,11 +22,11 @@ void setup() {
   }
 
 }
-void setYellow()
+void setPurple()
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             // Does take RGB
-            leds[0][i] = CRGB(230,100,1);
+            leds[0][i] = CRGB(20,0,25);
             // (85,12.7,73.7)
             FastLED.show();
         }
@@ -44,7 +44,7 @@ void loop() {
     // This inner loop will go over each led in the current strip, one at a time  
     setBlack();
     FastLED.delay(500);
-    setYellow();
+    setPurple();
       
       
   }
