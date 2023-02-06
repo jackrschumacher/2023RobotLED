@@ -12,6 +12,7 @@ CRGB blueStrip[NUM_LEDS_PER_STRIP];
 CRGB whiteStrip[NUM_LEDS_PER_STRIP];
 CRGB blackStrip[NUM_LEDS_PER_STRIP];
 
+
 // For mirroring strips, all the "special" stuff happens just in setup.  We
 // just addLeds multiple times, once for each strip
 void setup() {
@@ -33,24 +34,43 @@ void setBlack(){
       FastLED.show();
     }
 }
-void setBluePattern()
+void setBluePatternForwards()
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             // Does take RGB
             leds[0][i] = CRGB(0,0,255);
-            delay(50);
+            delay(25);
             FastLED.show();
         }
   }
-void setWhitePattern()
+void setWhitePatternForward()
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             // Does take RGB
             leds[0][i] = CRGB(255,255,255);
-            delay(50);
+            delay(25);
             FastLED.show();
         }
   }
+  void setBluePatternBack()
+  {
+    for(int i = 60; i > 0; i--) {
+            // Does take RGB
+            leds[0][i] = CRGB(0,0,255);
+            delay(25);
+            FastLED.show();
+        }
+  }
+void setWhitePatternBack()
+  {
+    for(int i = 60; i > 0; i--) {
+            // Does take RGB
+            leds[0][i] = CRGB(255,255,255);
+            delay(25);
+            FastLED.show();
+        }
+  }
+
 
 
 void loop() {
@@ -58,10 +78,14 @@ void loop() {
     // This inner loop will go over each led in the current strip, one at a time  
     
     
-    setBluePattern();
-    FastLED.delay(1000);
-    setWhitePattern();
-    FastLED.delay(1000);
+    setBluePatternForwards();
+    FastLED.delay(250);
+    setWhitePatternForward();
+    FastLED.delay(250);
+    setBluePatternBack();
+    FastLED.delay(250);
+    setWhitePatternBack();
+
       
   }
 
