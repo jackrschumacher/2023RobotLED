@@ -15,6 +15,7 @@ CRGB orangeStrip[NUM_LEDS_PER_STRIP];
 // just addLeds multiple times, once for each strip
 void setup() {
   // tell FastLED there's 60 NEOPIXEL leds on pin 2
+  FastLED.setBrightness(50);
   FastLED.addLeds<NEOPIXEL, 12>(leds[0], NUM_LEDS_PER_STRIP);
   for(int i =0; i < NUM_LEDS_PER_STRIP; i++){
     orangeStrip[i] = CRGB(230,100,1);

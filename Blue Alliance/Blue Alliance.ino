@@ -14,6 +14,7 @@ CRGB blueStrip[NUM_LEDS_PER_STRIP];
 // For mirroring strips, all the "special" stuff happens just in setup.  We
 // just addLeds multiple times, once for each strip
 void setup() {
+  FastLED.setBrightness(50);
   // tell FastLED there's 60 NEOPIXEL leds on pin 2
   FastLED.addLeds<NEOPIXEL, 12>(leds[0], NUM_LEDS_PER_STRIP);
   for(int i =0; i < NUM_LEDS_PER_STRIP; i++){
