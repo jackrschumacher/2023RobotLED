@@ -1,4 +1,4 @@
-#Good RGB Values
+# Good RGB Values
 
 - (20,0,25)- Purple
 - (230,100,1) - Yellow
