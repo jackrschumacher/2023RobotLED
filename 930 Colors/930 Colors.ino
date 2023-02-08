@@ -8,8 +8,8 @@
 #define NUM_STRIPS 4
 #define NUM_LEDS_PER_STRIP 81
 CRGB leds[NUM_STRIPS][NUM_LEDS_PER_STRIP];
-CRGB blueStrip[NUM_LEDS_PER_STRIP];
-CRGB whiteStrip[NUM_LEDS_PER_STRIP];
+// CRGB blueStrip[NUM_LEDS_PER_STRIP];
+// CRGB whiteStrip[NUM_LEDS_PER_STRIP];
 
 
 
@@ -41,7 +41,7 @@ void setWhitePatternForward()
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             // Does take RGB
-            leds[0][i] = CRGB(200,200,200);
+            leds[0][i] = CRGB(255,255,255);
             delay(25);
             FastLED.show();
         }
