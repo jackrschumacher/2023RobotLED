@@ -5,35 +5,29 @@
 // Import library
 #include <FastLED.h>
 
-#define NUM_STRIPS 1
-#define NUM_LEDS_PER_STRIP 60
+#define NUM_STRIPS 4
+#define NUM_LEDS_PER_STRIP 81
 CRGB leds[NUM_STRIPS][NUM_LEDS_PER_STRIP];
 CRGB blueStrip[NUM_LEDS_PER_STRIP];
 CRGB whiteStrip[NUM_LEDS_PER_STRIP];
-CRGB blackStrip[NUM_LEDS_PER_STRIP];
+
 
 
 // For mirroring strips, all the "special" stuff happens just in setup.  We
 // just addLeds multiple times, once for each strip
 void setup() {
-  // tell FastLED there's 60 NEOPIXEL leds on pin 2
+  FastLED.setBrightness(64);
+  // tell FastLED there's 81 NEOPIXEL leds on pin 12
   FastLED.addLeds<NEOPIXEL, 12>(leds[0], NUM_LEDS_PER_STRIP);
-  for(int i =0; i < NUM_LEDS_PER_STRIP; i++){
-    blueStrip[i] = CRGB(7,30,74);
-    whiteStrip[i] = CRGB(255,255,255);
-    blackStrip[i] = CRGB(0,0,0);
+  // for(int i =0; i < NUM_LEDS_PER_STRIP; i++){
+  //   blueStrip[i] = CRGB(7,30,74);
+  //   whiteStrip[i] = CRGB(255,255,255);
     
-  }
+    
+  // }
   
 }
-void setBlack(){
-  for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-      // Does take RGB
-      leds[0][i] = CRGB(0,0,0);
-      // (85,12.7,73.7)
-      FastLED.show();
-    }
-}
+
 void setBluePatternForwards()
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
@@ -47,14 +41,14 @@ void setWhitePatternForward()
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             // Does take RGB
-            leds[0][i] = CRGB(255,255,255);
+            leds[0][i] = CRGB(200,200,200);
             delay(25);
             FastLED.show();
         }
   }
   void setBluePatternBack()
   {
-    for(int i = 60; i > 0; i--) {
+    for(int i = 81; i >= 0; i--) {
             // Does take RGB
             leds[0][i] = CRGB(0,0,255);
             delay(25);
@@ -63,7 +57,7 @@ void setWhitePatternForward()
   }
 void setWhitePatternBack()
   {
-    for(int i = 60; i > 0; i--) {
+    for(int i = 81; i >= 0; i--) {
             // Does take RGB
             leds[0][i] = CRGB(255,255,255);
             delay(25);
@@ -78,13 +72,13 @@ void loop() {
     // This inner loop will go over each led in the current strip, one at a time  
     
     
-    setBluePatternForwards();
+    // setBluePatternForwards();
     FastLED.delay(250);
     setWhitePatternForward();
-    FastLED.delay(250);
-    setBluePatternBack();
-    FastLED.delay(250);
-    setWhitePatternBack();
+    // FastLED.delay(250);
+    // setBluePatternBack();
+    // FastLED.delay(250);
+    // setWhitePatternBack();
 
       
   }
