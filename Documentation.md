@@ -12,9 +12,9 @@
 - Red Alliance
 - Diabled
 - Cone Request
-- Cone Aqquired
+- Cone Aquired
 - Cube Request
-- Cube Aqquired
+- Cube Aquired
 - Random LED (?)
 - Auto - Balance
 
