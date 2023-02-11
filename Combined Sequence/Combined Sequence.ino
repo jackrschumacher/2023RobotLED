@@ -130,8 +130,14 @@ void CLEAR(){
 }
 
 void loop() {
+    int pin0 = digitalRead(0);
+    int pin1 = digitalRead(1);
+    int pin2 = digitalRead(2);
+    int pin3 = digitalRead(3);
+
     
-    // This inner loop will go over each led in the current strip, one at a time  
+    // This inner loop will go over each led in the current strip, one at a time
+    if(pin 0 == fa)  
     CONEREQUEST();
     delay(4000);
     CONEAQUIRED();
