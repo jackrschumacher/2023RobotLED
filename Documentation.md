@@ -22,7 +22,7 @@
 ### Cube Request
 - Patterns:false, true, false, false
 ### Cube Aquired
-- Pattern: false, true, false, false
+- Pattern: false, false, true, false
 ### Random LED (?)
 - Pattern: true, true, false, false
 ### Auto - Balance

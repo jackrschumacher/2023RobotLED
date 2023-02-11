@@ -11,6 +11,9 @@ CRGB leds[NUM_STRIPS][NUM_LEDS_PER_STRIP];
 CRGB redStrip[NUM_LEDS_PER_STRIP];
 
 
+long randNumber1;
+long randNumber2;
+long randNumber3;
 // For mirroring strips, all the "special" stuff happens just in setup.  We
 // just addLeds multiple times, once for each strip
 void setup() {
@@ -128,7 +131,17 @@ void CLEAR(){
       FastLED.show();
     }
 }
-
+void RANDOMLIGHTS(){
+  for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
+            // Does take RGB
+            randNumber1 = random(0, 255);
+            randNumber2 = random(0,225);
+            randNumber3 = random(0,225);
+            leds[0][i] = CRGB(randNumber1,randNumber2,randNumber3);
+            
+            FastLED.show();
+        }
+}
 void loop() {
     int pin0 = digitalRead(0);
     int pin1 = digitalRead(1);
@@ -137,22 +150,40 @@ void loop() {
 
     
     // This inner loop will go over each led in the current strip, one at a time
-    if(pin 0 == fa)  
-    CONEREQUEST();
-    delay(4000);
-    CONEAQUIRED();
-    delay(4000);
-    REDALLIANCE();
-    delay(4000);
-    CUBEREQUEST();
-    delay(4000);
-    CUBEAQUIRED();
-    delay(4000);
-    BLUEALLIANCE();
-    delay(4000);
-    DISABLED();
-    delay(4000);
-    TEAMCOLORS();
+    if(pin0 == 0 && pin1 == 0 && pin2 == 0 && pin3 == 0){
+      DISABLED();
+    }
+    else if(pin0 == 1 && pin1 == 1 && pin2 == 1 && pin3 == 1){
+      TEAMCOLORS();
+    }
+    else if(pin0 == 1 && pin1 == 1 && pin2 == 0 && pin3 == 0){
+      BLUEALLIANCE();
+    }
+    else if(pin0 == 1 && pin1 == 1 && pin2 == 1 && pin3 == 0){
+      REDALLIANCE();
+    }
+    else if(pin0 == 1 && pin1 == 0 && pin2 == 0 && pin3 == 0){
+      CONEREQUEST();
+    }
+    else if(pin0 == 0 && pin1 == 0 && pin2 == 0 && pin3 == 1){
+      CONEAQUIRED();
+    }
+    else if(pin0 == 0 && pin1 == 1 && pin2 == 0 && pin3 == 0){
+      CUBEREQUEST();
+    }
+    else if(pin0 == 0 && pin1 == 0 && pin2 == 1 && pin3 == 0){
+      CUBEAQUIRED();
+    }
+    else if(pin0 == 0 && pin1 == 0 && pin2 == 1 && pin3 == 1){
+      RANDOMLIGHTS();      
+    }
+    else{
+      CLEAR();
+    }
+    // else if(pin0 == 1 && pin1 == 0 && pin2 == 1 && pin3 == 0){
+    //   AUTOBALANCE();
+    // }
+   
 
     
       
