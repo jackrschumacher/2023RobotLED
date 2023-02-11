@@ -133,19 +133,19 @@ void loop() {
     
     // This inner loop will go over each led in the current strip, one at a time  
     CONEREQUEST();
-    FastLED.delay(1000);
+    delay(4000);
     CONEAQUIRED();
-    FastLED.delay(1000);
+    delay(4000);
     REDALLIANCE();
-    FastLED.delay(1000);
+    delay(4000);
     CUBEREQUEST();
-    FastLED.delay(1000);
+    delay(4000);
     CUBEAQUIRED();
-    FastLED.delay(1000);
+    delay(4000);
     BLUEALLIANCE();
-    FastLED.delay(1000);
+    delay(4000);
     DISABLED();
-    FastLED.delay(1000);
+    delay(4000);
     TEAMCOLORS();
 
     
