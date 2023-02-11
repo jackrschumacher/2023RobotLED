@@ -1,4 +1,4 @@
-# FastLEd Function Documentation
+# FastLED Function Documentation
 - FastLED.setBrightness(#); - Sets the brightness of the LED's. This can be useful in order to avoid overloading the LED's. 
 # RIO Communication Documentation
 ## Attributes
@@ -6,17 +6,27 @@
 - Voltages needed for DIO
 - DIO Packages
 
-## Methods
-- 930 Colors
-- Blue Alliance
-- Red Alliance
-- Diabled
-- Cone Request
-- Cone Aquired
-- Cube Request
-- Cube Aquired
-- Random LED (?)
-- Auto - Balance
+## Methods and Patterns
+### 930 Colors
+- Pattern:true, true, true, true
+### Blue Alliance
+- Pattern:true, true, false, false
+### Red Alliance
+- Pattern:true,true, true, false
+### Disabled
+- Pattern:false, false, false, false
+### Cone Request
+- Pattern: true, false, false, false
+### Cone Aquired
+- Pattern: false, false, false, true
+### Cube Request
+- Patterns:false, true, false, false
+### Cube Aquired
+- Pattern: false, true, false, false
+### Random LED (?)
+- Pattern: true, true, false, false
+### Auto - Balance
+- Pattern:true, false, true, false
 
 ## Commands
 - Auto-Balance
