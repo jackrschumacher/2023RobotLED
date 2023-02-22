@@ -26,6 +26,12 @@ void setup() {
     pinMode(3,INPUT_PULLUP);
 }
 // Different LED patterns
+void REMOVE(){
+  for(int i = 0; i < NUM_LEDS_PER_STRIP; i++){
+      leds[0][i] = CRGB(0,0,0);
+      FastLED.show();
+    }
+}
 void REDALLIANCE()
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
@@ -40,9 +46,9 @@ void CONEREQUEST()
             FastLED.show();
             
             
-        }
+  }
         FastLED.delay(500);
-        CLEAR();
+        REMOVE();
 }
 void CONEAQUIRED()
   {
@@ -58,7 +64,7 @@ void CUBEREQUEST()
             FastLED.show();
         }
         FastLED.delay(500);
-        CLEAR();
+        REMOVE();
   }
 void CUBEAQUIRED()
   {
@@ -76,8 +82,9 @@ void DISABLED()
   }
 void BLUEALLIANCE()
   {
-  for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) 
-          leds[0][i] = CRGB(0,0,255)
+  for(int i = 0; i < NUM_LEDS_PER_STRIP; i++)
+  {
+          leds[0][i] = CRGB(0,0,255);
           FastLED.show();
       }
   }
@@ -108,12 +115,7 @@ void BLUEALLIANCE()
 //         }
 //   FastLED.delay(250);
 // }
-void CLEAR(){
-  for(int i = 0; i < NUM_LEDS_PER_STRIP; i++
-      leds[0][i] = CRGB(0,0,
-      FastLED.show();
-    }
-}
+
 void RANDOMLIGHTS(){
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             
@@ -127,7 +129,8 @@ void RANDOMLIGHTS(){
 }
 void AUTOBALANCE(){
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-                     
+               
+}
 }
 void loop(){
  
@@ -167,12 +170,13 @@ void loop(){
     else if(pin0 == PIN_INACTIVE && pin1 == PIN_INACTIVE && pin2 == PIN_ACTIVE && pin3 == PIN_ACTIVE){
       RANDOMLIGHTS();      
     }
-    else{
-      CLEAR();
-    }
     else if(pin0 == 1 && pin1 == 0 && pin2 == 1 && pin3 == 0){
       AUTOBALANCE();
     }
+    else{
+      REMOVE();
+    }
+    
 
 }
 
