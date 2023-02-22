@@ -81,33 +81,33 @@ void BLUEALLIANCE()
           FastLED.show();
       }
   }
-void TEAMCOLORS()
-{
-  for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-            leds[0][i] = CRGB(0,0,255);
-            delay(25);
-            FastLED.show();
-        }
-  FastLED.delay(250);
-  for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-            leds[0][i] = CRGB(255,255,255);
-            delay(25);
-            FastLED.show();
-        }
-  FastLED.delay(250);
-  for(int i = 81; i >= 0; i--) {
-            leds[0][i] = CRGB(0,0,255);
-            delay(25);
-            FastLED.show();
-        }
-  FastLED.delay(250);
-  for(int i = 81; i >= 0; i--) {
-            leds[0][i] = CRGB(255,255,255);
-            delay(25);
-            FastLED.show();
-        }
-  FastLED.delay(250);
-}
+// void TEAMCOLORS()
+// {
+//   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
+//             leds[0][i] = CRGB(0,0,255);
+//             delay(25);
+//             FastLED.show();
+//         }
+//   FastLED.delay(250);
+//   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
+//             leds[0][i] = CRGB(255,255,255);
+//             delay(25);
+//             FastLED.show();
+//         }
+//   FastLED.delay(250);
+//   for(int i = 81; i >= 0; i--) {
+//             leds[0][i] = CRGB(0,0,255);
+//             delay(25);
+//             FastLED.show();
+//         }
+//   FastLED.delay(250);
+//   for(int i = 81; i >= 0; i--) {
+//             leds[0][i] = CRGB(255,255,255);
+//             delay(25);
+//             FastLED.show();
+//         }
+//   FastLED.delay(250);
+// }
 void CLEAR(){
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++
       leds[0][i] = CRGB(0,0,
@@ -143,9 +143,9 @@ void loop(){
     if(pin0 == PIN_INACTIVE && pin1 == PIN_INACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
       DISABLED();
     }
-    else if(pin0 == PIN_ACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_ACTIVE && pin3 == PIN_ACTIVE){
-      TEAMCOLORS();
-    }
+    // else if(pin0 == PIN_ACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_ACTIVE && pin3 == PIN_ACTIVE){
+    //   TEAMCOLORS();
+    // }
     else if(pin0 == PIN_ACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
       BLUEALLIANCE();
     }
