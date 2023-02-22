@@ -7,8 +7,9 @@ CRGB leds[NUM_STRIPS][NUM_LEDS_PER_STRIP];
 CRGB redStrip[NUM_LEDS_PER_STRIP];
 
 // Define active state of pins vs inactive pins
-#define PIN_ACTIVE  0
-#define PIN_INACTIVE 1
+// Sometimes inputs can be flipped TODO FINISH!
+#define PIN_ACTIVE  1
+#define PIN_INACTIVE 0
 
 // Intialize random numbers for random LED pattern
 long randNumber1;
@@ -26,10 +27,9 @@ void setup() {
     pinMode(3,INPUT_PULLUP);
 }
 // Different LED patterns
-void REMOVE(){
+void CLEAR(){
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++){
-      leds[0][i] = CRGB(0,0,0);
-      FastLED.show();
+      FastLED.clear();
     }
 }
 void REDALLIANCE()
@@ -48,7 +48,7 @@ void CONEREQUEST()
             
   }
         FastLED.delay(500);
-        REMOVE();
+        CLEAR();
 }
 void CONEAQUIRED()
   {
@@ -64,7 +64,7 @@ void CUBEREQUEST()
             FastLED.show();
         }
         FastLED.delay(500);
-        REMOVE();
+        CLEAR();
   }
 void CUBEAQUIRED()
   {
@@ -73,13 +73,13 @@ void CUBEAQUIRED()
             FastLED.show();
         }
   }
-void DISABLED()
-  {
-    for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-            leds[0][i] = CRGB(235,123,98);
-            FastLED.show();
-        }
-  }
+// void DISABLED()
+//   {
+//     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
+//             leds[0][i] = CRGB(235,123,98);
+//             FastLED.show();
+//         }
+//   }
 void BLUEALLIANCE()
   {
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++)
@@ -143,13 +143,13 @@ void loop(){
    
     
     // If statements determining which pattern is being sent from the RIO w/ DIO
-    if(pin0 == PIN_INACTIVE && pin1 == PIN_INACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
-      DISABLED();
-    }
+    // if(pin0 == PIN_INACTIVE && pin1 == PIN_INACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
+    //   DISABLED();
+    // }
     // else if(pin0 == PIN_ACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_ACTIVE && pin3 == PIN_ACTIVE){
     //   TEAMCOLORS();
     // }
-    else if(pin0 == PIN_ACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
+    if(pin0 == PIN_ACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
       BLUEALLIANCE();
     }
     else if(pin0 == PIN_ACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_ACTIVE && pin3 == PIN_INACTIVE){
@@ -174,7 +174,7 @@ void loop(){
       AUTOBALANCE();
     }
     else{
-      REMOVE();
+      CLEAR();
     }
     
 
