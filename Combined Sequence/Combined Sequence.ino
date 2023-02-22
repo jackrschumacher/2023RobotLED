@@ -1,14 +1,14 @@
-// Create 4 array's of LED's with 81 LEDs each
 #include <FastLED.h>
-
+// Create 4 array's of LED's with 81 LEDs each
 #define NUM_STRIPS 4
 #define NUM_LEDS_PER_STRIP 81
 CRGB leds[NUM_STRIPS][NUM_LEDS_PER_STRIP];
 CRGB redStrip[NUM_LEDS_PER_STRIP];
 
 // Define active state of pins vs inactive pins
-#define PIN_ACTIVE  0
-#define PIN_INACTIVE 1
+// Sometimes inputs can be flipped, so this saves time changing the values of input and output in the loop
+#define PIN_ACTIVE  1
+#define PIN_INACTIVE 0
 
 // Intialize random numbers for random LED pattern
 long randNumber1;
@@ -17,22 +17,25 @@ long randNumber3;
 
 // Setup the different strips of LEDs 
 void setup() {
+  // Set the brightness of the LED Strips in order to avoid overloading the board
   FastLED.setBrightness(50);
-  // tell FastLED there's 60 NEOPIXEL leds on pin 2
+  // tell FastLED library what pin the LED strips are on
   FastLED.addLeds<NEOPIXEL, 12>(leds[0], NUM_LEDS_PER_STRIP);
+  // Define which input pins to pull the DIO value of the RIO From
     pinMode(0,INPUT_PULLUP);
     pinMode(1,INPUT_PULLUP);
     pinMode(2,INPUT_PULLUP);
     pinMode(3,INPUT_PULLUP);
 }
-// Different LED patterns
-void REMOVE(){
+// Define Different LED patterns
+void CLEAR(){
+  // Create Clear LED pattern, setting all LEDs in the strip to no value
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++){
-      leds[0][i] = CRGB(0,0,0);
-      FastLED.show();
+      FastLED.clear();
     }
 }
 void REDALLIANCE()
+  // Set all LEDs in the Strip to the color Red 
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             leds[0][i] = CRGB(255,0,0);
@@ -40,6 +43,7 @@ void REDALLIANCE()
         }
   }
 void CONEREQUEST()
+// Move up the array of LEDs, wait 500 milliseconds (half a second), and clear the array and repeat
 {
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             leds[0][i] = CRGB(230,100,1);
@@ -48,9 +52,10 @@ void CONEREQUEST()
             
   }
         FastLED.delay(500);
-        REMOVE();
+        CLEAR();
 }
 void CONEAQUIRED()
+// Set all the LEDs in the Array to Yellow
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             leds[0][i] = CRGB(230,100,1);
@@ -64,7 +69,7 @@ void CUBEREQUEST()
             FastLED.show();
         }
         FastLED.delay(500);
-        REMOVE();
+        CLEAR();
   }
 void CUBEAQUIRED()
   {
@@ -76,7 +81,7 @@ void CUBEAQUIRED()
 void DISABLED()
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-            leds[0][i] = CRGB(235,123,98);
+            leds[0][i] = CRGB(255,0,0);
             FastLED.show();
         }
   }
@@ -174,7 +179,7 @@ void loop(){
       AUTOBALANCE();
     }
     else{
-      REMOVE();
+      CLEAR();
     }
     
 
