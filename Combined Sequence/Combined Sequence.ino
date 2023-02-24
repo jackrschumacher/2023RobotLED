@@ -63,6 +63,7 @@ void CONEAQUIRED()
         }
   }
 void CUBEREQUEST()
+// Set all the LEDs in the Array to Purple, wait half a second, and then clear all the LEDs and Repeat
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             leds[0][i] = CRGB(20,0,25);
@@ -72,6 +73,7 @@ void CUBEREQUEST()
         CLEAR();
   }
 void CUBEAQUIRED()
+// Set all the LEDs in the Array to Purple
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             leds[0][i] = CRGB(20,0,25);
@@ -79,6 +81,8 @@ void CUBEAQUIRED()
         }
   }
 void DISABLED()
+// Set all the LEDs in the Array to Orange (Disalbed)
+// TODO: Check if the Color is the same as the disabled color on the robot, or at least close to it
   {
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             leds[0][i] = CRGB(255,0,0);
@@ -86,6 +90,7 @@ void DISABLED()
         }
   }
 void BLUEALLIANCE()
+// Set all the LEDs in the array to Blue
   {
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++)
   {
@@ -122,6 +127,7 @@ void BLUEALLIANCE()
 // }
 
 void RANDOMLIGHTS(){
+  // Pick a random number from 0 to 255 and set each of the rgb values to one of the random valuesd
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             
             randNumber1 = random(0, 255);
@@ -148,6 +154,7 @@ void loop(){
    
     
     // If statements determining which pattern is being sent from the RIO w/ DIO
+    // Look at variable declaration of PIN_INACTIVE/PIN_ACTIVE for information
     if(pin0 == PIN_INACTIVE && pin1 == PIN_INACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
       DISABLED();
     }
