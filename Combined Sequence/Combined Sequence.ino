@@ -51,7 +51,7 @@ void CONEREQUEST()
             
             
   }
-        FastLED.delay(500);
+        FastLED.delay(1000);
         CLEAR();
 }
 void CONEAQUIRED()
@@ -69,7 +69,7 @@ void CUBEREQUEST()
             leds[0][i] = CRGB(20,0,25);
             FastLED.show();
         }
-        FastLED.delay(500);
+        FastLED.delay(1000);
         CLEAR();
   }
 void CUBEAQUIRED()
