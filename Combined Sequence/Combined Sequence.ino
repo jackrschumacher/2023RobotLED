@@ -48,10 +48,10 @@ void CONEREQUEST()
   for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             leds[0][i] = CRGB(230,100,1);
             FastLED.show();
-            
+            FastLED.delay(500);
             
   }
-        FastLED.delay(1000);
+        
         CLEAR();
 }
 void CONEAQUIRED()
@@ -68,8 +68,9 @@ void CUBEREQUEST()
     for(int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
             leds[0][i] = CRGB(20,0,25);
             FastLED.show();
+            FastLED.delay(500);
         }
-        FastLED.delay(1000);
+        
         CLEAR();
   }
 void CUBEAQUIRED()
