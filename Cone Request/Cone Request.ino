@@ -5,8 +5,8 @@
 // Import library
 #include <FastLED.h>
 
-#define NUM_STRIPS 4
-#define NUM_LEDS_PER_STRIP 81
+#define NUM_STRIPS 3
+#define NUM_LEDS_PER_STRIP 36
 CRGB leds[NUM_STRIPS][NUM_LEDS_PER_STRIP];
 CRGB redStrip[NUM_LEDS_PER_STRIP];
 CRGB blackStrip[NUM_LEDS_PER_STRIP];

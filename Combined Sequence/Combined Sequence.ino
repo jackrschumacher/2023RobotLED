@@ -56,13 +56,14 @@ void CONEREQUEST()
 // Move up the array of LEDs, wait 500 milliseconds (half a second), and clear the array and repeat
 {
   for (int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-    
+    FastLED.delay(100);
     leds[0][i] = CRGB(230, 100, 1);
     FastLED.show();
-    
-  }
     FastLED.delay(500);
     CLEAR();
+    
+  }
+    
 
   
 }
@@ -84,14 +85,13 @@ void CUBEREQUEST()
 // Set all the LEDs in the Array to Purple, wait half a second, and then clear all the LEDs and Repeat
 {
   for (int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-    
+    FastLED.delay(10);
     leds[0][i] = CRGB(20, 0, 25);
     FastLED.show();
-    
+    FastLED.delay(500);
+    CLEAR();
   }
-      FastLED.delay(500);
       
-      CLEAR();
   
   
 }
