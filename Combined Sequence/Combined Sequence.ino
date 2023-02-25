@@ -32,7 +32,10 @@ void setup() {
 void CLEAR() {
   // Create Clear LED pattern, setting all LEDs in the strip to no value
   for (int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-    FastLED.clear();
+    leds[0][i] = CRGB::Black;
+    FastLED.show();
+    
+  
   }
 }
 
@@ -53,12 +56,15 @@ void CONEREQUEST()
 // Move up the array of LEDs, wait 500 milliseconds (half a second), and clear the array and repeat
 {
   for (int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
+    
     leds[0][i] = CRGB(230, 100, 1);
     FastLED.show();
-    FastLED.delay(10);
+    
   }
+    FastLED.delay(500);
+    CLEAR();
 
-  CLEAR();
+  
 }
 
 
@@ -78,12 +84,16 @@ void CUBEREQUEST()
 // Set all the LEDs in the Array to Purple, wait half a second, and then clear all the LEDs and Repeat
 {
   for (int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
+    
     leds[0][i] = CRGB(20, 0, 25);
     FastLED.show();
-    FastLED.delay(10);
+    
   }
-
-  CLEAR();
+      FastLED.delay(500);
+      
+      CLEAR();
+  
+  
 }
 
 
@@ -103,7 +113,7 @@ void DISABLED()
 // TODO: Check if the Color is the same as the disabled color on the robot, or at least close to it
 {
   for (int i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-    leds[0][i] = CRGB(255, 0, 0);
+    leds[0][i] = CRGB(200, 0, 0);
     FastLED.show();
   }
 }
@@ -201,6 +211,6 @@ void loop() {
   else if (pin2 == 1 && pin3 == 0 && pin4 == 1 && pin5 == 0) {
     AUTOBALANCE();
   } else {
-    CLEAR();
+    DISABLED();
   }
 }
