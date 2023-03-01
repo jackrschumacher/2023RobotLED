@@ -22,10 +22,10 @@ void setup() {
   // tell FastLED library what pin the LED strips are on
   FastLED.addLeds<NEOPIXEL, 12>(leds[0], NUM_LEDS_PER_STRIP);
   // Define which input pins to pull the DIO value of the RIO From
-    pinMode(0,INPUT_PULLUP);
-    pinMode(1,INPUT_PULLUP);
     pinMode(2,INPUT_PULLUP);
     pinMode(3,INPUT_PULLUP);
+    pinMode(4,INPUT_PULLUP);
+    pinMode(5,INPUT_PULLUP);
 }
 // Define Different LED patterns
 void CLEAR(){
@@ -146,47 +146,47 @@ void AUTOBALANCE(){
 void loop(){
  
   // Initialize digital Read pins
-  int pin0 = digitalRead(0);
-  int pin1 = digitalRead(1);
   int pin2 = digitalRead(2);
   int pin3 = digitalRead(3);
+  int pin4 = digitalRead(4);
+  int pin5 = digitalRead(5);
   
    
     
     // If statements determining which pattern is being sent from the RIO w/ DIO
     // Look at variable declaration of PIN_INACTIVE/PIN_ACTIVE for information
-    if(pin0 == PIN_INACTIVE && pin1 == PIN_INACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
+    if(pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE && pin4 == PIN_INACTIVE && pin5 == PIN_INACTIVE){
       DISABLED();
     }
-    // else if(pin0 == PIN_ACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_ACTIVE && pin3 == PIN_ACTIVE){
+    // else if(pin2 == PIN_ACTIVE && pin3 == PIN_ACTIVE && pin4 == PIN_ACTIVE && pin5 == PIN_ACTIVE){
     //   TEAMCOLORS();
     // }
-    else if(pin0 == PIN_ACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
+    else if(pin2 == PIN_ACTIVE && pin3 == PIN_ACTIVE && pin4 == PIN_INACTIVE && pin5 == PIN_INACTIVE){
       BLUEALLIANCE();
     }
-    else if(pin0 == PIN_ACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_ACTIVE && pin3 == PIN_INACTIVE){
+    else if(pin2 == PIN_ACTIVE && pin3 == PIN_ACTIVE && pin4 == PIN_ACTIVE && pin5 == PIN_INACTIVE){
       REDALLIANCE();
     }
-    else if(pin0 == PIN_ACTIVE && pin1 == PIN_INACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
+    else if(pin2 == PIN_ACTIVE && pin3 == PIN_INACTIVE && pin4 == PIN_INACTIVE && pin5 == PIN_INACTIVE){
       CONEREQUEST();
     }
-    else if(pin0 == PIN_INACTIVE && pin1 == PIN_INACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_ACTIVE){
+    else if(pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE && pin4 == PIN_INACTIVE && pin5 == PIN_ACTIVE){
       CONEAQUIRED();
     }
-    else if(pin0 == PIN_INACTIVE && pin1 == PIN_ACTIVE && pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE){
+    else if(pin2 == PIN_INACTIVE && pin3 == PIN_ACTIVE && pin4 == PIN_INACTIVE && pin5 == PIN_INACTIVE){
       CUBEREQUEST();
     }
-    else if(pin0 == PIN_INACTIVE && pin1 == PIN_INACTIVE && pin2 == PIN_ACTIVE && pin3 == PIN_INACTIVE){
+    else if(pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE && pin4 == PIN_ACTIVE && pin5 == PIN_INACTIVE){
       CUBEAQUIRED();
     }
-    else if(pin0 == PIN_INACTIVE && pin1 == PIN_INACTIVE && pin2 == PIN_ACTIVE && pin3 == PIN_ACTIVE){
+    else if(pin2 == PIN_INACTIVE && pin3 == PIN_INACTIVE && pin4 == PIN_ACTIVE && pin5 == PIN_ACTIVE){
       RANDOMLIGHTS();      
     }
-    else if(pin0 == 1 && pin1 == 0 && pin2 == 1 && pin3 == 0){
+    else if(pin2 == 1 && pin3 == 0 && pin4 == 1 && pin5 == 0){
       AUTOBALANCE();
     }
     else{
-      CLEAR();
+      DISABLED();
     }
     
 
